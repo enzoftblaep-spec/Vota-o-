@@ -1,0 +1,208 @@
+:root {
+  --corpo: #e4e6e3;
+  --corpo-borda: #c3c6c2;
+  --tela: #f4f4f2;
+  --teclado: #1d1d1d;
+  --tecla: #2b2b2b;
+  --branco: #f7f7f7;
+  --corrige: #e2722c;
+  --confirma: #2f9e44;
+  --texto: #111;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: #d9d4cb;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--texto);
+}
+
+.urna {
+  width: 100%;
+  max-width: 920px;
+  display: grid;
+  grid-template-columns: 1.55fr 1fr;
+  gap: 24px;
+  padding: 28px 28px 0;
+  background: linear-gradient(#eef0ed, var(--corpo));
+  border: 2px solid var(--corpo-borda);
+  border-radius: 18px 18px 10px 10px;
+  box-shadow: 0 18px 40px rgba(0,0,0,.25), inset 0 2px 0 #fff;
+}
+
+/* ---------- tela ---------- */
+.tela {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: var(--tela);
+  border: 10px solid #cfd2ce;
+  border-radius: 6px;
+  box-shadow: inset 0 0 0 2px #9da09c;
+  overflow: hidden;
+  font-size: clamp(11px, 1.9vw, 17px);
+  padding: 4% 5%;
+}
+
+.tela .cabecalho { font-size: .85em; }
+.tela .cargo { font-size: 1.6em; text-align: center; margin: .6em 0 .9em; }
+.tela .linha { margin: .4em 0; font-size: 1.1em; }
+.tela .linha b { display: inline-block; min-width: 4.5em; font-weight: normal; }
+
+.digitos { display: inline-flex; gap: .3em; vertical-align: middle; }
+.digito {
+  width: 1.6em; height: 2em;
+  border: 1px solid #333;
+  display: grid; place-items: center;
+  font-size: 1.3em; font-weight: bold;
+}
+.digito.piscando { animation: piscar 1s steps(1) infinite; }
+@keyframes piscar { 50% { background: #333; } }
+
+.tela .foto {
+  position: absolute;
+  top: 6%; right: 5%;
+  width: 26%;
+  text-align: center;
+  font-size: .75em;
+}
+.tela .foto img { width: 100%; aspect-ratio: 3/4; object-fit: cover; border: 1px solid #555; display: block; }
+
+.tela .grande { font-size: 2.2em; font-weight: bold; text-align: center; margin-top: .6em; }
+.tela .grande.piscando { animation: piscar-texto 1s steps(1) infinite; }
+@keyframes piscar-texto { 50% { opacity: 0; } }
+
+.tela .instrucoes {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  border-top: 1px solid #333;
+  padding: .5em 5%;
+  font-size: .8em;
+  line-height: 1.5;
+}
+
+.tela .fim {
+  position: absolute; inset: 0;
+  display: grid; place-items: center;
+  font-size: 6em; font-weight: bold; letter-spacing: .05em;
+}
+
+.tela .inicio { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; color: #555; }
+.tela .inicio .brasao-tela { font-size: 4em; color: #2f9e44; line-height: 1; }
+
+/* ---------- painel / teclado ---------- */
+.painel { display: flex; flex-direction: column; gap: 14px; }
+
+.placa {
+  display: flex; align-items: center; justify-content: space-between;
+  background: #f2f2f0;
+  border: 1px solid var(--corpo-borda);
+  padding: 8px 14px;
+  font-weight: bold; font-size: 15px; text-align: right; line-height: 1.15;
+}
+.brasao { font-size: 28px; color: #555; }
+
+.teclado {
+  flex: 1;
+  background: var(--teclado);
+  border-radius: 6px;
+  padding: 18px 16px;
+  display: flex; flex-direction: column; justify-content: space-between; gap: 16px;
+}
+
+.numeros {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px 18px;
+  padding: 0 8%;
+}
+.numeros .zero { grid-column: 2; }
+
+button { font: inherit; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+
+.tecla {
+  background: var(--tecla);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 0;
+  font-size: 20px;
+  box-shadow: 0 3px 0 #000, inset 0 1px 0 #444;
+}
+.tecla:active, .acao:active { transform: translateY(2px); box-shadow: 0 1px 0 #000; }
+
+.acoes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.acao {
+  border: none; border-radius: 4px;
+  padding: 12px 0;
+  font-size: 11px; font-weight: bold;
+  box-shadow: 0 3px 0 #000;
+}
+.acao.branco { background: var(--branco); color: #111; }
+.acao.corrige { background: var(--corrige); color: #111; }
+.acao.confirma { background: var(--confirma); color: #111; padding: 16px 0; }
+
+.rodape {
+  grid-column: 1 / -1;
+  display: flex; justify-content: space-around; align-items: center;
+  padding: 10px 0 12px;
+}
+.fenda { width: 6px; height: 16px; background: #555; border-radius: 3px; }
+.ver-votos {
+  background: #d6d8d4;
+  border: 1px solid #a9aca8;
+  border-radius: 3px;
+  font-size: 10px;
+  color: #444;
+  padding: 3px 10px;
+  text-transform: uppercase; letter-spacing: .08em;
+}
+
+.aviso { font-size: 12px; color: #6b665e; margin-top: 14px; }
+
+/* ---------- diálogos ---------- */
+dialog {
+  border: none; border-radius: 12px;
+  padding: 22px;
+  width: min(92vw, 420px);
+  box-shadow: 0 20px 50px rgba(0,0,0,.35);
+}
+dialog::backdrop { background: rgba(0,0,0,.45); }
+dialog h2 { margin: 0 0 14px; font-size: 18px; }
+dialog label { display: block; font-size: 13px; margin-bottom: 6px; }
+dialog input {
+  width: 100%; font-size: 20px; padding: 10px;
+  border: 1px solid #bbb; border-radius: 6px; letter-spacing: .3em;
+}
+.erro { color: #c0392b; font-size: 13px; margin: 8px 0 0; }
+.dlg-botoes { display: flex; justify-content: flex-end; gap: 8px; margin-top: 18px; }
+.dlg-botoes button { border: 1px solid #bbb; background: #fff; border-radius: 6px; padding: 8px 16px; }
+.dlg-botoes .primario { background: var(--confirma); border-color: var(--confirma); color: #fff; }
+
+.resultados { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.resultados li { display: grid; grid-template-columns: 44px 1fr auto; gap: 10px; align-items: center; }
+.resultados img, .resultados .sem-foto {
+  width: 44px; height: 58px; object-fit: cover; border-radius: 4px; background: #e5e5e5;
+}
+.resultados .nome { font-size: 14px; font-weight: bold; }
+.resultados .sub { font-size: 12px; color: #666; }
+.resultados .barra { height: 6px; background: #eee; border-radius: 3px; margin-top: 4px; overflow: hidden; }
+.resultados .barra span { display: block; height: 100%; background: var(--confirma); }
+.resultados .qtd { font-size: 14px; text-align: right; min-width: 52px; }
+.total { font-size: 13px; color: #555; margin: 14px 0 0; }
+
+/* ---------- celular ---------- */
+@media (max-width: 680px) {
+  body { padding: 12px; justify-content: flex-start; }
+  .urna { grid-template-columns: 1fr; padding: 16px 16px 0; gap: 16px; }
+  .tela { font-size: clamp(10px, 3.4vw, 16px); border-width: 7px; aspect-ratio: auto; min-height: 300px; }
+  .placa { display: none; }
+  .tecla { font-size: 22px; padding: 10px 0; }
+}

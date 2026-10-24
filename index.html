@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Urna Eletrônica — Simulador</title>
+  <link rel="stylesheet" href="css/urna.css">
+</head>
+<body>
+  <main class="urna" aria-label="Urna eletrônica">
+    <section class="tela" id="tela" aria-live="polite"></section>
+
+    <section class="painel">
+      <div class="placa">
+        <span class="brasao" aria-hidden="true">★</span>
+        <span>SIMULADOR<br>DE URNA</span>
+      </div>
+      <div class="teclado">
+        <div class="numeros">
+          <button class="tecla" data-num="1">1</button>
+          <button class="tecla" data-num="2">2</button>
+          <button class="tecla" data-num="3">3</button>
+          <button class="tecla" data-num="4">4</button>
+          <button class="tecla" data-num="5">5</button>
+          <button class="tecla" data-num="6">6</button>
+          <button class="tecla" data-num="7">7</button>
+          <button class="tecla" data-num="8">8</button>
+          <button class="tecla" data-num="9">9</button>
+          <button class="tecla zero" data-num="0">0</button>
+        </div>
+        <div class="acoes">
+          <button class="acao branco" id="btn-branco">BRANCO</button>
+          <button class="acao corrige" id="btn-corrige">CORRIGE</button>
+          <button class="acao confirma" id="btn-confirma">CONFIRMA</button>
+        </div>
+      </div>
+    </section>
+
+    <div class="rodape">
+      <span class="fenda"></span><span class="fenda"></span><span class="fenda"></span>
+      <button class="ver-votos" id="btn-ver-votos">ver votos</button>
+      <span class="fenda"></span><span class="fenda"></span><span class="fenda"></span>
+    </div>
+  </main>
+
+  <p class="aviso">Jogo de brincadeira — não é uma urna oficial.</p>
+
+  <dialog id="dlg-senha">
+    <form method="dialog" id="form-senha">
+      <h2>Área restrita</h2>
+      <label for="senha">Senha</label>
+      <input id="senha" type="password" inputmode="numeric" autocomplete="off" required>
+      <p class="erro" id="erro-senha" hidden></p>
+      <div class="dlg-botoes">
+        <button type="button" id="btn-cancelar">Cancelar</button>
+        <button type="submit" class="primario">Entrar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="dlg-resultados">
+    <h2>Apuração — Presidente</h2>
+    <ol id="lista-resultados" class="resultados"></ol>
+    <p id="total-votos" class="total"></p>
+    <div class="dlg-botoes">
+      <button type="button" id="btn-atualizar">Atualizar</button>
+      <button type="button" class="primario" id="btn-fechar">Fechar</button>
+    </div>
+  </dialog>
+
+  <script src="js/candidatos.js"></script>
+  <script src="js/urna.js"></script>
+</body>
+</html>

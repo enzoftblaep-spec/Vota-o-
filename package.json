@@ -1,0 +1,12 @@
+{
+  "name": "urna-game",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Joguinho de urna eletrônica: vote para presidente; os votos ficam no Netlify Blobs e só aparecem com senha.",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@netlify/blobs": "^11.0.3"
+  }
+}
