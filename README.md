@@ -6,6 +6,7 @@ nulo funcionam como na urna de verdade.
 
 O botão **VER VOTOS** (embaixo da urna) mostra a apuração e pede senha. A senha
 padrão é `1907`; para trocar, crie a variável de ambiente `VOTOS_SENHA` no Netlify.
+Na apuração tem o botão **Reiniciar votação**, que apaga todos os votos.
 
 ## Candidatos
 

@@ -185,6 +185,7 @@ dialog input {
 .dlg-botoes { display: flex; justify-content: flex-end; gap: 8px; margin-top: 18px; }
 .dlg-botoes button { border: 1px solid #bbb; background: #fff; border-radius: 6px; padding: 8px 16px; }
 .dlg-botoes .primario { background: var(--confirma); border-color: var(--confirma); color: #fff; }
+.dlg-botoes .perigo { margin-right: auto; color: #c0392b; border-color: #e3b1ab; }
 
 .resultados { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
 .resultados li { display: grid; grid-template-columns: 44px 1fr auto; gap: 10px; align-items: center; }

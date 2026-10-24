@@ -158,10 +158,10 @@
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ voto }),
       });
-      if (!r.ok) throw new Error(r.status);
+      if (!r.ok) throw new Error(`HTTP ${r.status}`);
     } catch (e) {
       console.error("Falha ao registrar voto", e);
-      alert("Não foi possível registrar o voto. Verifique a internet e tente de novo.");
+      alert(`Não foi possível registrar o voto (${e.message}). Tente de novo.`);
     }
   }
 
@@ -198,6 +198,7 @@
     dlgResultados.close();
   });
   document.getElementById("btn-atualizar").addEventListener("click", () => carregarResultados(senhaOk));
+  document.getElementById("btn-resetar").addEventListener("click", resetarVotacao);
 
   document.getElementById("form-senha").addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -234,6 +235,23 @@
   async function carregarResultados(senha) {
     const dados = await buscarResultados(senha);
     if (dados) mostrarResultados(dados);
+  }
+
+  async function resetarVotacao() {
+    if (!confirm("Apagar TODOS os votos e começar do zero? Não dá pra desfazer.")) return;
+    try {
+      const r = await fetch("/.netlify/functions/resetar", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ senha: senhaOk }),
+      });
+      const dados = await r.json();
+      if (!r.ok || !dados.ok) throw new Error(dados.error || `HTTP ${r.status}`);
+    } catch (e) {
+      alert(`Não foi possível reiniciar a votação (${e.message}).`);
+      return;
+    }
+    carregarResultados(senhaOk);
   }
 
   function mostrarResultados({ contagem, total }) {
