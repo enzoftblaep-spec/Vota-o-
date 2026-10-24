@@ -6,4 +6,5 @@ window.CANDIDATOS = [
   { numero: "13", nome: "LULA", partido: "PT", foto: "assets/candidatos/c3.jpg" },
   { numero: "70", nome: "AUGUSTO CURY", partido: "AVANTE", foto: "assets/candidatos/c4.jpg" },
   { numero: "22", nome: "FLÁVIO BOLSONARO", partido: "PL", foto: "assets/candidatos/c5.jpg" },
+  { numero: "67", nome: "ENZO PESSANHA", partido: "SEM PARTIDO", foto: "assets/candidatos/c6.jpg" },
 ];
