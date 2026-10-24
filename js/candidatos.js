@@ -7,4 +7,5 @@ window.CANDIDATOS = [
   { numero: "70", nome: "AUGUSTO CURY", partido: "AVANTE", foto: "assets/candidatos/c4.jpg" },
   { numero: "22", nome: "FLÁVIO BOLSONARO", partido: "PL", foto: "assets/candidatos/c5.jpg" },
   { numero: "67", nome: "ENZO PESSANHA", partido: "VAI SE FODER", foto: "assets/candidatos/c6.jpg" },
+  { numero: "42", nome: "PEDRO ROMERO", partido: "PEDREIRO", foto: "assets/candidatos/c7.jpg" },
 ];
