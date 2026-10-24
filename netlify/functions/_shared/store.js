@@ -1,6 +1,9 @@
-const { getStore } = require("@netlify/blobs");
+const { connectLambda, getStore } = require("@netlify/blobs");
 
-function store() {
+// Lambda-style functions (exports.handler) must hand the event to
+// connectLambda before getStore, or Blobs has no credentials to use.
+function store(event) {
+  connectLambda(event);
   return getStore("urna-votos");
 }
 

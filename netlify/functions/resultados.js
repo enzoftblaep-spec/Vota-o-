@@ -19,7 +19,7 @@ exports.handler = async (event) => {
     return json(401, { ok: false, error: "Senha incorreta" });
   }
 
-  const { blobs } = await store().list({ prefix: "v/" });
+  const { blobs } = await store(event).list({ prefix: "v/" });
   const contagem = {};
   for (const { key } of blobs) {
     const voto = key.split("/")[1];

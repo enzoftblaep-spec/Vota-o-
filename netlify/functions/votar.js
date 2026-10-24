@@ -22,6 +22,6 @@ exports.handler = async (event) => {
   }
 
   const id = `${Date.now()}-${crypto.randomBytes(6).toString("hex")}`;
-  await store().set(`v/${payload.voto}/${id}`, "1");
+  await store(event).set(`v/${payload.voto}/${id}`, "1");
   return json(200, { ok: true });
 };
