@@ -1,0 +1,73 @@
+feature,area,priority,original,clone,notes
+Login e cadastro com e-mail/senha,auth,must,yes,no,S01
+Setup da conta dona no primeiro acesso,auth,must,yes,no,S02
+Lista de workflows com busca e toggle ativo,workflows,must,yes,no,S03 incluir estado vazio com CTA
+Criar / renomear / duplicar / excluir workflow,workflows,must,yes,no,S03 S04
+Canvas com zoom pan e seleção,editor,must,yes,no,S04
+Adicionar nó pelo painel de busca (node creator),editor,must,yes,no,S05
+Conectar e desconectar nós (arrastar portas),editor,must,yes,no,S04
+Múltiplas saídas nomeadas (true/false; Switch),editor,must,yes,no,F05
+Painel de detalhe do nó com Input / Parâmetros / Output,editor,must,yes,no,S06
+Visualização de dados em tabela e JSON,editor,must,yes,no,S06
+Testar um único passo,editor,must,yes,no,F01
+Executar workflow inteiro manualmente,engine,must,yes,no,F01
+Status visual por nó (rodando/sucesso/erro + contagem de itens),editor,must,yes,no,S04
+Salvar com aviso de alterações não salvas,editor,must,yes,no,F01 edge
+Expressões {{ }} com $json e referência a outros nós,engine,must,yes,no,F06 sandbox obrigatório
+Arrastar campo do Input para gerar expressão,editor,should,yes,no,F06
+Motor de execução por itens (grafo dirigido),engine,must,yes,no,§6 coração do produto
+Trigger manual,triggers,must,yes,no,F01
+Trigger webhook com URL de teste e de produção,triggers,must,yes,no,F03
+Responder ao webhook (imediato ou nó de resposta),triggers,must,yes,no,F03
+Trigger agendado (intervalo e cron) com fuso horário,triggers,must,yes,no,F04
+Ativar / desativar workflow,triggers,must,yes,no,S04
+Nó HTTP Request,nodes-core,must,yes,no,F01
+Nó Set / Editar campos,nodes-core,must,yes,no,F05
+Nó IF,nodes-core,must,yes,no,F05
+Nó Switch,nodes-core,should,yes,no,F05
+Nó Merge,nodes-core,must,yes,no,F05 esperar ramos
+Nó Code (JavaScript),nodes-core,must,yes,no,S08 sandbox
+Nó Code (Python),nodes-core,could,yes,no,S08
+Nó Wait (tempo e webhook de retomada),nodes-core,should,yes,no,F11 persistência
+Nó Filter / Sort / Limit / Remove duplicates,nodes-core,should,yes,no,
+Nó Loop over items (split in batches),nodes-core,should,yes,no,
+Nó Execute sub-workflow,nodes-core,should,yes,no,
+Nó No-op / Sticky note no canvas,editor,could,yes,no,
+Credenciais criptografadas (lista + modal),credentials,must,yes,no,S09 S10
+Credencial por API key / header / basic auth,credentials,must,yes,no,S10
+Credencial OAuth2 com refresh de token,credentials,must,yes,no,F02
+Testar credencial,credentials,should,yes,no,S10
+Integração Telegram (enviar + trigger),integrations,must,yes,no,uso da usuária (Enzin VIP)
+Integração Google Sheets,integrations,must,yes,no,F02
+Integração Gmail / SMTP e-mail,integrations,must,yes,no,
+Integração Google Agenda,integrations,should,yes,no,clínica
+Integração WhatsApp Business (API oficial),integrations,should,yes,no,exige conta Meta Business
+Integração Mercado Pago / Pix,integrations,could,no,no,diferencial BR
+Integração Kiwify / Hotmart (webhook pronto),integrations,could,no,no,diferencial BR
+Carregar opções dinâmicas (listar planilhas/canais),integrations,should,yes,no,resource locator
+Lista de execuções com filtros e status,executions,must,yes,no,S11
+Detalhe da execução com dados por nó,executions,must,yes,no,S12
+Debug: carregar dados de execução no editor,executions,should,yes,no,F07
+Repetir execução que falhou,executions,should,yes,no,S11
+Retry por nó e continuar em caso de erro,engine,should,yes,no,Node settings
+Workflow de erro (Error Trigger),engine,should,yes,no,F08
+Configurações do workflow (timezone/salvar execuções/timeout),workflows,should,yes,no,S13
+Fixar dados (pin data) de um nó,editor,should,yes,no,S06
+Copiar/colar nós como JSON e importar/exportar workflow,workflows,should,yes,no,F12
+Tags em workflows,workflows,could,yes,no,
+Histórico de versões e restaurar,workflows,could,yes,no,S18
+Nó AI Agent com modelo + memória + ferramentas,ai,should,yes,no,F10 Claude como modelo padrão
+Chat Trigger e painel de chat de teste,ai,should,yes,no,S19
+Form Trigger (formulário público),triggers,could,yes,no,S20
+Convidar usuários e papéis,team,could,yes,no,S16
+Compartilhar workflow,team,could,yes,no,S17
+Variáveis globais,team,could,yes,no,S21
+API pública com API key,platform,could,yes,no,S15
+Templates prontos por nicho (PT-BR),templates,should,partial,no,diferencial: clínica e infoproduto
+Interface em português e editor usável no celular,ux,should,no,no,diferencial
+SSO / SAML / LDAP,enterprise,skip,yes,no,fora do público-alvo
+Ambientes e controle de versão por Git,enterprise,skip,yes,no,Business+ no original
+Log streaming e audit log,enterprise,skip,yes,no,Enterprise no original
+Catálogo de ~1000 integrações,integrations,skip,yes,no,volume; crescer sob demanda
+Nós da comunidade via npm,platform,skip,yes,no,ecossistema do original
+Galeria pública de templates da comunidade,templates,skip,yes,no,conteúdo de terceiros
